@@ -55,6 +55,14 @@ func _process(delta):
 	elif Input.is_action_pressed("move_right"):
 		direction += transform.basis.x
 	
+	elif Input.is_action_pressed("ui_leftmouse"):
+		_on_MeleeHit_area_entered()
+
+func _on_MeleeHit_area_entered(area):
+		if area.is_in_group("hurtbox"):
+		area.take_damage()
+		
+	
 	direction = direction.normalized()
 	velocity = velocity.linear_interpolate(direction * speed, acceleartion * delta)
 	velocity = move_and_slide(velocity, Vector3.UP)
@@ -64,3 +72,7 @@ func _process(delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 	#pass
+
+
+func _on_MeleeHit2D_area_entered(area):
+	pass # Replace with function body.

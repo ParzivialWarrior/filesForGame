@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://LifeBar.gd" type="Script" id=1]
+[ext_resource path="res://HealthBorder.png" type="Texture" id=2]
+[ext_resource path="res://HeartIcon.png" type="Texture" id=3]
+[ext_resource path="res://healthBarFill.png" type="Texture" id=4]
+
+[node name="LifeBar" type="HBoxContainer"]
+margin_right = 5.0
+margin_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Count" type="NinePatchRect" parent="."]
+margin_bottom = 52.0
+
+[node name="Title" type="TextureRect" parent="Count"]
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 14.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tag" type="Label" parent="Count"]
+margin_left = 4.0
+margin_right = 4.0
+margin_bottom = 14.0
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = 4.0
+margin_right = 360.0
+margin_bottom = 52.0
+max_value = 10.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 4 )

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://KeyCounter.gd" type="Script" id=1]
+[ext_resource path="res://KeyIcon.png" type="Texture" id=2]
+[ext_resource path="res://KeyBackground.png" type="Texture" id=3]
+
+[node name="KeyCounter" type="NinePatchRect"]
+margin_right = 78.0
+margin_bottom = 51.0
+texture = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="Number"]
+margin_top = 14.0
+margin_right = 42.0
+margin_bottom = 53.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

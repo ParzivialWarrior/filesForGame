@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://interface.gd" type="Script" id=1]
+[ext_resource path="res://KeyCounter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LifeBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HealthBorder.png" type="Texture" id=4]
+
+[node name="interface" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Bar" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeBar" parent="Bar" instance=ExtResource( 3 )]
+margin_right = 360.0
+margin_bottom = 52.0
+
+[node name="Title" parent="Bar/LifeBar/Count" index="0"]
+margin_left = -24.0007
+margin_top = -6.36383
+margin_right = 51.9993
+
+[node name="TextureProgress" parent="Bar/LifeBar" index="1"]
+texture_under = ExtResource( 4 )
+texture_over = null
+
+[node name="Counters" type="HBoxContainer" parent="."]
+anchor_right = 0.02
+anchor_bottom = 0.033
+margin_left = 7.63657
+margin_right = 27.1566
+margin_bottom = 20.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyCounter" parent="Counters" instance=ExtResource( 2 )]
+
+[node name="Icon" parent="Counters/KeyCounter/Number" index="0"]
+margin_left = 870.797
+margin_top = 12.625
+margin_right = 912.797
+margin_bottom = 52.625
+[connection signal="health_changed" from="." to="Bar/LifeBar" method="_on_interface_health_changed"]
+[connection signal="key_changed" from="." to="Counters/KeyCounter" method="_on_interface_key_changed"]
+
+[editable path="Bar/LifeBar"]
+
+[editable path="Counters/KeyCounter"]

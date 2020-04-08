@@ -3,7 +3,7 @@ extends KinematicBody
 var speed = 8
 var acceleartion = 20
 var gravity = 9.5
-var jump = 5.5
+var jump = 10
 
 var mouse_sensitvity = 0.05 
 
@@ -28,9 +28,7 @@ func _input(event):
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitvity))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sensitvity))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-90), deg2rad(90))
-
-	 
- 
+		
 		
 		
 func _process(delta):
